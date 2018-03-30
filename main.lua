@@ -21,7 +21,7 @@ SWIPE_TTL = 0.25
 function add_goose()
    local direction = love.math.random(math.pi)
    local start = love.math.random(right)
-   local speed = BASE_SPEED + love.math.random(BASE_SPEED)
+   local speed = BASE_SPEED + love.math.random(BASE_SPEED * level * 0.25)
    local goose = {}
    goose['y'] = bottom
    goose['x'] = start
@@ -84,10 +84,13 @@ function love.update(dt)
 end
 
 function love.draw()
+   love.graphics.setColor(255, 255, 255)
    love.graphics.setBackgroundColor(135, 206, 235)
+   love.graphics.print(string.format("Score:%4d", points), 100, 100, 0, game_scale * 8)
    for _, goose in ipairs(geese) do
       love.graphics.draw(goose_img, goose["x"], goose["y"], goose["r"], game_scale, game_scale, 172*game_scale, 29*game_scale)
    end
+   love.graphics.setColor(255, 0, 0)
    for _, swipe in ipairs(swipes) do
       love.graphics.line(swipe['x1'], swipe['y1'], swipe['x2'], swipe['y2'])
    end
