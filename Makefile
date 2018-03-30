@@ -1,5 +1,7 @@
-.PHONY = demo
+.PHONY = all demo
 
-demo:
-	zip gooseninja.love main.lua goose.png LICENSE
-	mv gooseninja.love ~/fuse/android/Phone/Download
+all:
+	zip fruitninjabutwithgeese.love main.lua goose.png LICENSE
+
+demo: all
+	mv fruitninjabutwithgeese.love ~/fuse/android/Phone/Download
