@@ -84,6 +84,7 @@ function love.update(dt)
 end
 
 function love.draw()
+   love.graphics.setBackgroundColor(135, 206, 235)
    for _, goose in ipairs(geese) do
       love.graphics.draw(goose_img, goose["x"], goose["y"], goose["r"], game_scale, game_scale, 172*game_scale, 29*game_scale)
    end
